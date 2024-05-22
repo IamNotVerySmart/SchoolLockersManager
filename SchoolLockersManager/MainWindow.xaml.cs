@@ -17,7 +17,7 @@ namespace SchoolLockersManager
             InitializeComponent();
         }
 
-        //Funkcja która po wcześniejszemu zczytaniu informacji z textboxów, generuje kod QR oraz wyświetla użytkownikowi
+        //Funkcja która po wcześniejszemu zczytaniu informacji z textboxów, generuje oraz wyświetla użytkownikowi kod QR
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
             QRCodeGenerator qr = new QRCodeGenerator();
@@ -48,10 +48,14 @@ namespace SchoolLockersManager
             switch (name)
             {
                 case "View":
-                    MessageBox.Show("view", "kliknięto");
+                    ViewWindow viewWindow = new ViewWindow();
+                    viewWindow.Show();
+                    this.Close();
                     break;
                 case "List":
-                    MessageBox.Show("list", "kliknięto");
+                    ListWindow listWindow = new ListWindow();
+                    listWindow.Show();
+                    this.Close();
                     break;
             }
         }
