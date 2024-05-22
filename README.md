@@ -4,4 +4,6 @@ W wersji desktopowej ***DOSTĘPNEJ TYLKO DLA PERSONELU*** będzię możliwe zarz
 
 Wersja mobilna natomiast będzie pozwalała na szukanie szafki na podstawie kodu QR z klucza oraz wyświetlaniu pozycji wyszukiwanej na mapie szkoły w formie "top view" i sprawdzaniu danych właściciela takich jak imię, nazwisko, klasa, w celu skuteczniejszej i szybszej identyfikacji zagubionego klucza.
 
-![alt text](https://github.com/IamNotVerySmart/SchoolLockersManager/blob/master/desktop.png?raw=true)
+![alt text](https://github.com/IamNotVerySmart/SchoolLockersManager/blob/master/komp_teb_szafki.png?raw=true)
+
+![alt text](https://github.com/IamNotVerySmart/SchoolLockersManager/blob/master/mobile_teb_szafki_admin.png?raw=true)
