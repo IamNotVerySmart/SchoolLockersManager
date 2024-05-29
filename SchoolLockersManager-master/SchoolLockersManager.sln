@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolLockersManager", "SchoolLockersManager\SchoolLockersManager.csproj", "{115A5777-2C2A-458D-B70C-9648152EAF33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{115A5777-2C2A-458D-B70C-9648152EAF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115A5777-2C2A-458D-B70C-9648152EAF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115A5777-2C2A-458D-B70C-9648152EAF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115A5777-2C2A-458D-B70C-9648152EAF33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F48D245C-D8C4-4486-BD8A-BD2456174B5A}
+	EndGlobalSection
+EndGlobal
