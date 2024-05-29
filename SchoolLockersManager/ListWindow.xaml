@@ -28,7 +28,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Label Content="Wyświetl" Name="View" MouseDown="Menu_Click"/>
-            <Label Content="Lista" Name="List" MouseDown="Menu_Click"/>
+            <Label Content="Lista" Name="List" MouseDown="Menu_Click" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </Window>

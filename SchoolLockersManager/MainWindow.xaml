@@ -24,7 +24,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="placeholder" Name="Main" MouseDown="Menu_Click"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="placeholder" Name="Main" MouseDown="Menu_Click" FontWeight="Bold"/>
 
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Label Content="Wyświetl" Name="View" MouseDown="Menu_Click"/>
