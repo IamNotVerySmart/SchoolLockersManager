@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using static SchoolLockersManager.DataAccess;
 
 namespace SchoolLockersManager
 {
@@ -20,10 +22,15 @@ namespace SchoolLockersManager
 	/// </summary>
 	public partial class ListWindow : Window
 	{
-		public ListWindow()
+        public ObservableCollection<Student> Students { get; set; }
+
+        public ListWindow()
 		{
 			InitializeComponent();
-		}
+            Students = new ObservableCollection<Student>();
+            StudentsDataGrid.ItemsSource = Students;
+            LoadStudents();
+        }
 
 		private void Menu_Click(object sender, RoutedEventArgs e)
 		{
@@ -52,5 +59,15 @@ namespace SchoolLockersManager
                     break;
             }
         }
-	}
+
+        private void LoadStudents()
+        {
+            var students = DataAccess.GetStudents();
+            Students.Clear();
+            foreach (var student in students)
+            {
+                Students.Add(student);
+            }
+        }
+    }
 }

@@ -1,38 +1,28 @@
 ﻿<Window x:Class="SchoolLockersManager.ListWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SchoolLockersManager"
-        mc:Ignorable="d"
-        ResizeMode="CanMinimize"
-        FontSize="16"
-        SizeToContent="WidthAndHeight"
-        Title="ListWindow" Height="450" Width="800">
-    <Grid Margin="10">
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:SchoolLockersManager"
+		mc:Ignorable="d"
+		ResizeMode="CanMinimize"
+		FontSize="16"
+		SizeToContent="WidthAndHeight"
+		Title="ListWindow" Height="450" Width="800">
+	<Grid Margin="10">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="180"/>
+			<ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="180"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="placeholder" Name="Main" MouseDown="Menu_Click"/>
-
-<<<<<<< Updated upstream
-        <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Content="Wyświetl" Name="View" MouseDown="Menu_Click"/>
-            <Label Content="Lista" Name="List" MouseDown="Menu_Click" FontWeight="Bold"/>
-        </StackPanel>
-    </Grid>
-=======
 		<Label Grid.Row="0" Grid.Column="0" Content="Dodaj/Generuj" Name="Main" MouseDown="Menu_Click"/>
 
 		<StackPanel Grid.Column="0" Grid.Row="1">
@@ -45,5 +35,4 @@
 		</StackPanel>
 
 	</Grid>
->>>>>>> Stashed changes
 </Window>

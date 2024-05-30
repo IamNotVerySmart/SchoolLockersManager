@@ -12,10 +12,9 @@
     <Grid Margin="10">
         
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="180"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -24,10 +23,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="placeholder" Name="Main" MouseDown="Menu_Click" FontWeight="Bold"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Dodaj/Generuj" Name="Main" MouseDown="Menu_Click" FontWeight="Bold"/>
 
         <StackPanel Grid.Row="1" Grid.Column="0">
-            <Label Content="Wyświetl" Name="View" MouseDown="Menu_Click"/>
             <Label Content="Lista" Name="List" MouseDown="Menu_Click"/>
         </StackPanel>
 
@@ -36,12 +34,16 @@
             <TextBox Name="TxtBoxName" Text="" Margin="10, 2" MinWidth="200"/>
             <Label Content="Nazwisko " Padding="-5"/>
             <TextBox Name="TxtBoxSurname" Text="" Margin="10, 2"/>
-            <Label Content="Rocznik " Padding="-5"/>
-            <TextBox Name="TxtBoxGrade" Text="" Margin="10, 2"/>
+            <Label Content="Klasa " Padding="-5"/>
+            <TextBox Name="TxtBoxClass" Text="" Margin="10, 2"/>
+            <Label Content="Kierunek " Padding="-5"/>
+            <TextBox Name="TxtBoxSpecialization" Text="" Margin="10, 2"/>
             <Label Content="Nr. szafki/klucza" Padding="-5"/>
             <TextBox Name="TxtBoxLocker" Text="" Margin="10, 2"/>
             <Label Content="Blok szafek " Padding="-5"/>
             <TextBox Name="TxtBoxUnit" Text="" Margin="10, 2"/>
+            <Label Content="Piętro " Padding="-5"/>
+            <TextBox Name="TxtBoxFloor" Text="" Margin="10, 2"/>
         </StackPanel>
         
         <Button Content="Generuj" Click="Generate_Click"  Grid.Row="2" Grid.Column="1" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20,0"/>

@@ -15,17 +15,20 @@ namespace SchoolLockersManager
         public MainWindow()
         {
             InitializeComponent();
+            DatabaseInitializer.InitializeDatabase();
         }
 
         //Funkcja która po wcześniejszemu zczytaniu informacji z textboxów, generuje oraz wyświetla użytkownikowi kod QR
         private void Generate_Click(object sender, RoutedEventArgs e)
         {
             QRCodeGenerator qr = new QRCodeGenerator();
-            string tmp = TxtBoxGrade.Text + "\n" 
+            string tmp = TxtBoxClass.Text + "\n"
+                + TxtBoxSpecialization.Text + "\n" 
                 + TxtBoxName.Text + "\n" 
                 + TxtBoxSurname.Text + "\n" 
                 + TxtBoxLocker.Text + "\n"
-                + TxtBoxUnit.Text;
+                + TxtBoxUnit.Text + "\n"
+                + TxtBoxFloor.Text;
             QRCodeData data = qr.CreateQrCode(tmp,QRCodeGenerator.ECCLevel.Q);
             XamlQRCode code = new XamlQRCode(data);
             DrawingImage tmp1 = code.GetGraphic(1);
@@ -34,12 +37,28 @@ namespace SchoolLockersManager
 
         private void Print_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("placeholder", "to nic nie robi(jeszcze(mam nadzieje))");
+            PrintDialog printDialog = new PrintDialog();
+
+            // Wybór drukarki i ilosci kopi
+            if (printDialog.ShowDialog() == true)
+            {
+                // Drukowanie kodu QR
+                printDialog.PrintVisual(ImageQRCode, "Drukowanie kodu QR");
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("placeholder", "to też");
+            var newStudent = new DataAccess.Student
+            {
+                StudentID = DataAccess.GetLast() + 1,
+                Name = TxtBoxName.Text,
+                Surname = TxtBoxSurname.Text,
+                Class = int.Parse(TxtBoxClass.Text),
+                Specialization = TxtBoxSpecialization.Text,
+                AttendsSchool = true
+            };
+            DataAccess.AddStudent(newStudent);
         }
 
         // Przełączanie pomiędzy oknamy do zarządzania, a drukowaniem i dodawaniem uczniów.
