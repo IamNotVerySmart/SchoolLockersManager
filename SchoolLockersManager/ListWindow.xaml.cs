@@ -33,11 +33,6 @@ namespace SchoolLockersManager
                     mainWindow.Show();
                     this.Close();
                     break;
-                case "View":
-                    ViewWindow viewWindow = new ViewWindow();
-                    viewWindow.Show();
-                    this.Close();
-                    break;
             }
         }
     }
