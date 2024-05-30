@@ -42,7 +42,8 @@ namespace SchoolLockersManager
             MessageBox.Show("placeholder", "to też");
         }
 
-        private void Menu_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        // Przełączanie pomiędzy oknamy do zarządzania, a drukowaniem i dodawaniem uczniów.
+        private void Menu_Click(object sender, RoutedEventArgs e)
         {
             string name = ((Label)sender).Name;
             switch (name)
