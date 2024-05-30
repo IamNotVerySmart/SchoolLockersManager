@@ -26,9 +26,24 @@
 
         <Label Grid.Row="0" Grid.Column="0" Content="placeholder" Name="Main" MouseDown="Menu_Click"/>
 
+<<<<<<< Updated upstream
         <StackPanel Grid.Row="1" Grid.Column="0">
             <Label Content="Wyświetl" Name="View" MouseDown="Menu_Click"/>
             <Label Content="Lista" Name="List" MouseDown="Menu_Click" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
+=======
+		<Label Grid.Row="0" Grid.Column="0" Content="Dodaj/Generuj" Name="Main" MouseDown="Menu_Click"/>
+
+		<StackPanel Grid.Column="0" Grid.Row="1">
+			<Label Content="Zarządzaj" Name="Manage" MouseDown="Menu_Click" FontWeight="Bold"/>
+		</StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+		    <DataGrid x:Name="StudentsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+			<Button Content="Dodaj" Name="AddStudent" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Margin="10" Click="Menu_Click"/>
+		</StackPanel>
+
+	</Grid>
+>>>>>>> Stashed changes
 </Window>
