@@ -8,7 +8,7 @@ namespace SchoolLockersManager
     public class DataAccess
     {
         private static string dbFilePath = "lockersDB.sqlite";
-        private static string connectionString = $"Data Source={dbFilePath};Version=3;";
+        private static readonly string connectionString = $"Data Source={dbFilePath};Version=3;";
 
         public static IEnumerable<Student> GetStudents()
         {
@@ -31,6 +31,14 @@ namespace SchoolLockersManager
             using (var connection = new SQLiteConnection(connectionString))
             {
                 return connection.ExecuteScalar<int>("SELECT MAX(StudentID) FROM Students");
+            }
+        }
+
+        public static void AddLocker(Locker locker)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Execute(@"INSERT INTO Lockers (Number, Unit, Floor, ClosestClass) VALUES (@Number, @Unit, @Floor, @ClosestClass)", locker);
             }
         }
 

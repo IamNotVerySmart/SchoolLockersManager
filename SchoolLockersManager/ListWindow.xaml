@@ -27,6 +27,7 @@
 
 		<StackPanel Grid.Column="0" Grid.Row="1">
 			<Label Content="Zarządzaj" Name="Manage" MouseDown="Menu_Click" FontWeight="Bold"/>
+            <Label Content="Dodaj szafkę" Name="Locker" MouseDown="Menu_Click"/>
 		</StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
