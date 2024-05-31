@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using QRCoder;
 using QRCoder.Xaml;
+using static SchoolLockersManager.DataAccess;
 
 namespace SchoolLockersManager
 {
@@ -49,16 +50,45 @@ namespace SchoolLockersManager
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            var newStudent = new DataAccess.Student
+            try
             {
-                StudentID = DataAccess.GetLast() + 1,
-                Name = TxtBoxName.Text,
-                Surname = TxtBoxSurname.Text,
-                Class = int.Parse(TxtBoxClass.Text),
-                Specialization = TxtBoxSpecialization.Text,
-                AttendsSchool = true
-            };
-            DataAccess.AddStudent(newStudent);
+                // Sprawdzanie czy pola są puste, jeśli tak następuję pokazanie błedu o tym informującym
+                if (string.IsNullOrWhiteSpace(TxtBoxName.Text) ||
+                    string.IsNullOrWhiteSpace(TxtBoxSurname.Text) ||
+                    string.IsNullOrWhiteSpace(TxtBoxClass.Text) ||
+                    string.IsNullOrWhiteSpace(TxtBoxSpecialization.Text))
+                {
+                    MessageBox.Show("Wszystkie pola muszą być uzupełnione.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                // Sprawdzanie pola klasy czy jest INT, jeśli nie to informuję użytkownika o błędzie.
+                if (!int.TryParse(TxtBoxClass.Text, out int studentClass) ||
+                    !int.TryParse(TxtBoxLocker.Text, out int studentLocker) ||
+                    !int.TryParse(TxtBoxUnit.Text, out int studentUnit) ||
+                    !int.TryParse(TxtBoxFloor.Text, out int studentFloor))
+                {
+                    MessageBox.Show("Pole klasa musi być liczbą.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // Tworzenie nowego ucznia i przypisanie mu podanych parametrów
+                var newStudent = new Student
+                {
+                    Name = TxtBoxName.Text,
+                    Surname = TxtBoxSurname.Text,
+                    Class = studentClass,
+                    Specialization = TxtBoxSpecialization.Text,
+                    AttendsSchool = true
+                };
+
+                // Dodanie wcześniej stworzonego ucznia do bazy
+                DataAccess.AddStudent(newStudent);
+                MessageBox.Show("Uczeń został dodany!", "Udane", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         // Przełączanie pomiędzy oknamy do zarządzania, a drukowaniem i dodawaniem uczniów.

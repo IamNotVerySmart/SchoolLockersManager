@@ -30,8 +30,27 @@
 		</StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
-		    <DataGrid x:Name="StudentsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-			<Button Content="Dodaj" Name="AddStudent" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Margin="10" Click="Menu_Click"/>
+            <DataGrid x:Name="StudentsDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding StudentID}" IsReadOnly="True" Width="50"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"/>
+                    <DataGridTextColumn Header="Surname" Binding="{Binding Surname}" Width="150"/>
+                    <DataGridTextColumn Header="Class" Binding="{Binding Class}" Width="100"/>
+                    <DataGridTextColumn Header="Specialization" Binding="{Binding Specialization}" Width="150"/>
+                    <DataGridCheckBoxColumn Header="Attends School" Binding="{Binding AttendsSchool}" Width="100"/>
+                    <DataGridTemplateColumn Header="Locker">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding DataContext.Lockers, RelativeSource={RelativeSource AncestorType=Window}}"
+                                      SelectedItem="{Binding LockerID}"
+                                      DisplayMemberPath="Number"
+                                      SelectedValuePath="LockerID" Width="100"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Dodaj" Name="AddStudent" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Margin="10" Click="Menu_Click"/>
 		</StackPanel>
 
 	</Grid>

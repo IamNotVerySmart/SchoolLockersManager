@@ -34,6 +34,14 @@ namespace SchoolLockersManager
             }
         }
 
+        public static IEnumerable<Locker> GetLockers()
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                return connection.Query<Locker>("SELECT * FROM Lockers");
+            }
+        }
+
         public class Student
         {
             public int StudentID { get; set; }
@@ -42,6 +50,15 @@ namespace SchoolLockersManager
             public int Class { get; set; }
             public string Specialization { get; set; }
             public bool AttendsSchool { get; set; }
+        }
+
+        public class Locker
+        {
+            public int LockerID { get; set; }
+            public int Number { get; set; }
+            public int Unit { get; set; }
+            public int Floor { get; set; }
+            public double ClosestClass { get; set; }
         }
     }
 }

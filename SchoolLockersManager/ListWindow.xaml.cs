@@ -23,13 +23,15 @@ namespace SchoolLockersManager
 	public partial class ListWindow : Window
 	{
         public ObservableCollection<Student> Students { get; set; }
+        public ObservableCollection<Locker> Lockers { get; set; }
 
         public ListWindow()
 		{
 			InitializeComponent();
             Students = new ObservableCollection<Student>();
+            Lockers = new ObservableCollection<Locker>();
             StudentsDataGrid.ItemsSource = Students;
-            LoadStudents();
+            LoadData();
         }
 
 		private void Menu_Click(object sender, RoutedEventArgs e)
@@ -60,13 +62,20 @@ namespace SchoolLockersManager
             }
         }
 
-        private void LoadStudents()
+        private void LoadData()
         {
             var students = DataAccess.GetStudents();
             Students.Clear();
             foreach (var student in students)
             {
                 Students.Add(student);
+            }
+
+            var lockers = DataAccess.GetLockers();
+            Lockers.Clear();
+            foreach (var locker in lockers)
+            {
+                Lockers.Add(locker);
             }
         }
     }
